@@ -1,1 +1,113 @@
-const _0x11e2bd=_0x55f3;function _0x55f3($,e){let x=_0x5062();return(_0x55f3=function($,e){return x[$-=219]})($,e)}!function($,e){let x=_0x55f3,n=$();for(;;)try{let a=-parseInt(x(270))/1*(parseInt(x(229))/2)+parseInt(x(224))/3*(-parseInt(x(236))/4)+-parseInt(x(231))/5+-parseInt(x(237))/6*(-parseInt(x(251))/7)+-parseInt(x(240))/8*(parseInt(x(263))/9)+parseInt(x(220))/10+-parseInt(x(266))/11*(-parseInt(x(257))/12);if(526556===a)break;n.push(n.shift())}catch(t){n.push(n.shift())}}(_0x5062,526556);const chatBox=document.getElementById(_0x11e2bd(242)),userInput=document[_0x11e2bd(223)]("user-input"),chatContainer=document[_0x11e2bd(223)]("chat-container"),chatBtn=document[_0x11e2bd(223)](_0x11e2bd(227)),welcomeMessage=_0x11e2bd(267),optionsMessage="Por favor, elige una opci\xf3n:",mainOptions=[_0x11e2bd(249),_0x11e2bd(226),"Atenci\xf3n al cliente",_0x11e2bd(261)];function addMessage($,e=_0x11e2bd(221),x=!0){let n=_0x11e2bd,a=document.createElement(n(222));a[n(225)][n(269)](n(234),n("user"===e?250:259)),a[n(243)]=$,chatBox[n(268)](a),x&&(chatBox[n(232)]=chatBox[n(262)])}function showMainOptions(){let $=_0x11e2bd;addMessage("Por favor, elige una opci\xf3n:",$(221),!1);let e=document.createElement($(222));e.classList[$(269)]($(228)),mainOptions[$(241)](x=>{let n=$,a=document.createElement(n(246));a[n(225)][n(269)](n(265)),a[n(255)]=x,a.onclick=function(){processOption(x)},e.appendChild(a)}),chatBox[$(268)](e),chatBox[$(232)]=chatBox[$(262)]}function processOption($){let e=_0x11e2bd;addMessage(e(247)+$+'"',"user");let x="";switch($){case e(249):x=e(238);break;case"Ubicaci\xf3n":x=e(256);break;case e(245):x="Si tienes alguna duda, cont\xe1ctanos al n\xfamero <strong>+123 456 789</strong> o v\xeda WhatsApp en nuestra p\xe1gina web.";break;case"Rese\xf1as":x=e(219);break;default:x=e(248)}addMessage(x,"bot"),askIfWantMore()}function _0x5062(){let $=["send-btn","innerText","Nos encontramos en la Calle Innovaci\xf3n, Edificio Tecnoinnovaci\xf3n, Ciudad, Estado, Pa\xeds.","1080504fooOTN","\xbfDeseas saber algo m\xe1s? Si es as\xed, responde solo 'Si'.","bot-message","display","Rese\xf1as","scrollHeight","45ZJGgly","style","option-button","44okREwH","\xa1Bienvenido a Tecnoinnovaci\xf3n! Soy tu asistente virtual. \xbfEn qu\xe9 puedo ayudarte hoy?","appendChild","add","9MhjxLj","block",'Esto dicen nuestros clientes:<br><strong>Juan P\xe9rez</strong>: "Los mejores gadgets que he comprado!"<br><strong>Mar\xeda L\xf3pez</strong>: "Excelente atenci\xf3n y productos innovadores."',"8084020POMhfa","bot","div","getElementById","29217IVFiXq","classList","Ubicaci\xf3n","chat-btn","options-container","89140elxfHP","addEventListener","30205OyQxSY","scrollTop","onclick","message","DOMContentLoaded","108oDjfrf","56100SRxlZR","Nuestro horario de atenci\xf3n es de lunes a viernes de 9:00 am a 6:00 pm. \xa1Te esperamos!","\xa1Gracias por visitarnos! Te esperamos pronto en Tecnoinnovaci\xf3n.","14864ICvhNc","forEach","chat-box","innerHTML","none","Atenci\xf3n al cliente","button",'Cliente: He seleccionado la opci\xf3n: "',"Opci\xf3n no v\xe1lida, por favor selecciona una opci\xf3n del men\xfa.","Horarios de atenci\xf3n","user-message","28GYnwqF","flex","toLowerCase"];return(_0x5062=function(){return $})()}function askIfWantMore(){let $=_0x11e2bd;addMessage($(258),$(221),!0)}function processUserResponse($){let e=_0x11e2bd;"si"===$[e(253)]()?showMainOptions():"gracias"===$.toLowerCase()?(addMessage("\xa1De nada! Si necesitas algo m\xe1s, no dudes en preguntar.",e(221)),askIfWantMore()):(addMessage(e(239),"bot"),toggleChat())}function sendMessage(){let $=userInput.value.trim();""!==$&&(addMessage($,"user"),userInput.value="",processUserResponse($))}function toggleChat(){let $=_0x11e2bd;chatContainer.style[$(260)]===$(244)||""===chatContainer.style[$(260)]?(chatContainer.style.display=$(252),chatBtn[$(264)][$(260)]=$(244)):(chatContainer.style[$(260)]=$(244),chatBtn.style[$(260)]=$(271))}document[_0x11e2bd(230)](_0x11e2bd(235),()=>{let $=_0x11e2bd;addMessage(welcomeMessage,$(221),!1),showMainOptions()}),document[_0x11e2bd(223)](_0x11e2bd(254))[_0x11e2bd(233)]=sendMessage;
+const chatBox = document.getElementById("chat-box");
+const userInput = document.getElementById("user-input");
+const chatContainer = document.getElementById("chat-container");
+const chatBtn = document.getElementById("chat-btn");
+
+const welcomeMessage = "¡Bienvenido a Tecnoinnovación! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?";
+const optionsMessage = "Por favor, elige una opción:";
+
+const mainOptions = [
+    "Horarios de atención",
+    "Ubicación",
+    "Atención al cliente",
+    "Reseñas",
+];
+
+function addMessage(content, sender = "bot", scrollToBottom = true) {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+    messageDiv.innerHTML = content;
+    chatBox.appendChild(messageDiv);
+
+    if (scrollToBottom) {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+}
+
+function showMainOptions() {
+    addMessage(optionsMessage, "bot", false);
+
+    const optionsContainer = document.createElement("div");
+    optionsContainer.classList.add("options-container");
+
+    mainOptions.forEach(option => {
+        const optionButton = document.createElement("button");
+        optionButton.classList.add("option-button");
+        optionButton.innerText = option;
+        optionButton.onclick = function() {
+            processOption(option);
+        };
+        optionsContainer.appendChild(optionButton);
+    });
+
+    chatBox.appendChild(optionsContainer);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function processOption(option) {
+    addMessage(`Cliente: He seleccionado la opción: "${option}"`, "user");
+
+    let response = '';
+    switch (option) {
+        case "Horarios de atención":
+            response = "Nuestro horario de atención es de lunes a viernes de 9:00 am a 6:00 pm. ¡Te esperamos!";
+            break;
+        case "Ubicación":
+            response = "Nos encontramos en la Calle Innovación, Edificio Tecnoinnovación, Ciudad, Estado, País.";
+            break;
+        case "Atención al cliente":
+            response = "Si tienes alguna duda, contáctanos al número <strong>+123 456 789</strong> o vía WhatsApp en nuestra página web.";
+            break;
+        case "Reseñas":
+            response = "Esto dicen nuestros clientes:<br><strong>Juan Pérez</strong>: \"Los mejores gadgets que he comprado!\"<br><strong>María López</strong>: \"Excelente atención y productos innovadores.\"";
+            break;
+        default:
+            response = "Opción no válida, por favor selecciona una opción del menú.";
+    }
+
+    addMessage(response, "bot");
+    askIfWantMore();
+}
+
+function askIfWantMore() {
+    addMessage("¿Deseas saber algo más? Si es así, responde solo 'Si'.", "bot", true);
+}
+
+function processUserResponse(response) {
+    // Verifica si la respuesta es "gracias" y no cierra el chat
+    if (response.toLowerCase() === "si") {
+        showMainOptions();
+    } else if (response.toLowerCase() === "gracias") {
+        addMessage("¡De nada! Si necesitas algo más, no dudes en preguntar.", "bot");
+        askIfWantMore(); // Mantén la conversación abierta después de "gracias"
+    } else {
+        addMessage("¡Gracias por visitarnos! Te esperamos pronto en Tecnoinnovación.", "bot");
+        toggleChat();
+    }
+}
+
+function sendMessage() {
+    const message = userInput.value.trim();
+    if (message !== "") {
+        addMessage(message, "user");
+        userInput.value = "";
+        processUserResponse(message);
+    }
+}
+
+function toggleChat() {
+    if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
+        chatContainer.style.display = "flex";  // Muestra el chat
+        chatBtn.style.display = "none";  // Oculta el botón flotante
+    } else {
+        chatContainer.style.display = "none";  // Oculta el chat
+        chatBtn.style.display = "block";  // Muestra el botón flotante
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    addMessage(welcomeMessage, "bot", false);
+    showMainOptions();
+});
+
+document.getElementById("send-btn").onclick = sendMessage;
