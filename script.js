@@ -1,113 +1,173 @@
 const chatBox = document.getElementById("chat-box");
-const userInput = document.getElementById("user-input");
-const chatContainer = document.getElementById("chat-container");
-const chatBtn = document.getElementById("chat-btn");
+  const userInput = document.getElementById("user-input");
+  const chatContainer = document.getElementById("chat-container");
+  const chatBtn = document.getElementById("chat-btn");
 
-const welcomeMessage = "¡Bienvenido a Tecnoinnovación! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?";
-const optionsMessage = "Por favor, elige una opción:";
+  const welcomeMessage = "¡Bienvenido a Luna Mágica! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?";
+  const optionsMessage = "Por favor, elige una opción:";
 
-const mainOptions = [
-    "Horarios de atención",
-    "Ubicación",
-    "Atención al cliente",
-    "Reseñas",
-];
+  const mainOptions = [
+      "Horarios",
+      "Menú",
+      "Ubicación",
+      "Reservaciones",
+      "Contacto",
+      "Reseñas",
+      "Chef Principal"
+  ];
 
-function addMessage(content, sender = "bot", scrollToBottom = true) {
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", sender === "user" ? "user-message" : "bot-message");
-    messageDiv.innerHTML = content;
-    chatBox.appendChild(messageDiv);
+  const menuOptions = [
+      "Entradas",
+      "Platos Fuertes",
+      "Postres",
+      "Bebidas"
+  ];
 
-    if (scrollToBottom) {
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-}
+  function addMessage(content, sender = "bot", scrollToBottom = true) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+      messageDiv.innerHTML = content;
+      chatBox.appendChild(messageDiv);
 
-function showMainOptions() {
-    addMessage(optionsMessage, "bot", false);
+      if (scrollToBottom) {
+          chatBox.scrollTop = chatBox.scrollHeight;
+      }
+  }
 
-    const optionsContainer = document.createElement("div");
-    optionsContainer.classList.add("options-container");
+  function showMainOptions() {
+      addMessage(optionsMessage, "bot", false);
 
-    mainOptions.forEach(option => {
-        const optionButton = document.createElement("button");
-        optionButton.classList.add("option-button");
-        optionButton.innerText = option;
-        optionButton.onclick = function() {
-            processOption(option);
-        };
-        optionsContainer.appendChild(optionButton);
-    });
+      const optionsContainer = document.createElement("div");
+      optionsContainer.classList.add("options-container");
 
-    chatBox.appendChild(optionsContainer);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+      mainOptions.forEach(option => {
+          const optionButton = document.createElement("button");
+          optionButton.classList.add("option-button");
+          optionButton.innerText = option;
+          optionButton.onclick = function() {
+              processOption(option);
+          };
+          optionsContainer.appendChild(optionButton);
+      });
 
-function processOption(option) {
-    addMessage(`Cliente: He seleccionado la opción: "${option}"`, "user");
+      chatBox.appendChild(optionsContainer);
+      chatBox.scrollTop = chatBox.scrollHeight;
+  }
 
-    let response = '';
-    switch (option) {
-        case "Horarios de atención":
-            response = "Nuestro horario de atención es de lunes a viernes de 9:00 am a 6:00 pm. ¡Te esperamos!";
-            break;
-        case "Ubicación":
-            response = "Nos encontramos en la Calle Innovación, Edificio Tecnoinnovación, Ciudad, Estado, País.";
-            break;
-        case "Atención al cliente":
-            response = "Si tienes alguna duda, contáctanos al número <strong>+123 456 789</strong> o vía WhatsApp en nuestra página web.";
-            break;
-        case "Reseñas":
-            response = "Esto dicen nuestros clientes:<br><strong>Juan Pérez</strong>: \"Los mejores gadgets que he comprado!\"<br><strong>María López</strong>: \"Excelente atención y productos innovadores.\"";
-            break;
-        default:
-            response = "Opción no válida, por favor selecciona una opción del menú.";
-    }
+  function showMenuOptions() {
+      addMessage("Estos son los tipos de menús que ofrecemos. Por favor, selecciona una categoría.", "bot", false);
 
-    addMessage(response, "bot");
-    askIfWantMore();
-}
+      const optionsContainer = document.createElement("div");
+      optionsContainer.classList.add("options-container");
 
-function askIfWantMore() {
-    addMessage("¿Deseas saber algo más? Si es así, responde solo 'Si'.", "bot", true);
-}
+      menuOptions.forEach(menu => {
+          const menuButton = document.createElement("button");
+          menuButton.classList.add("option-button");
+          menuButton.innerText = menu;
+          menuButton.onclick = function() {
+              processMenu(menu);
+          };
+          optionsContainer.appendChild(menuButton);
+      });
 
-function processUserResponse(response) {
-    // Verifica si la respuesta es "gracias" y no cierra el chat
-    if (response.toLowerCase() === "si") {
-        showMainOptions();
-    } else if (response.toLowerCase() === "gracias") {
-        addMessage("¡De nada! Si necesitas algo más, no dudes en preguntar.", "bot");
-        askIfWantMore(); // Mantén la conversación abierta después de "gracias"
-    } else {
-        addMessage("¡Gracias por visitarnos! Te esperamos pronto en Tecnoinnovación.", "bot");
-        toggleChat();
-    }
-}
+      chatBox.appendChild(optionsContainer);
+      addMessage("Selecciona una categoría para más detalles.", "bot", true);
+  }
 
-function sendMessage() {
-    const message = userInput.value.trim();
-    if (message !== "") {
-        addMessage(message, "user");
-        userInput.value = "";
-        processUserResponse(message);
-    }
-}
+  function processOption(option) {
+      addMessage(`Cliente: He seleccionado la opción: "${option}"`, "user");
 
-function toggleChat() {
-    if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
-        chatContainer.style.display = "flex";  // Muestra el chat
-        chatBtn.style.display = "none";  // Oculta el botón flotante
-    } else {
-        chatContainer.style.display = "none";  // Oculta el chat
-        chatBtn.style.display = "block";  // Muestra el botón flotante
-    }
-}
+      let response = '';
+      switch (option) {
+          case "Horarios":
+              response = "Nuestro horario es de lunes a domingo de 12:00 pm a 11:00 pm. ¡Te esperamos!";
+              break;
+          case "Menú":
+              showMenuOptions();
+              return;
+          case "Ubicación":
+              response = "Estamos en la Avenida Central, Edificio Luna Mágica, Ciudad, Estado, Venezuela.";
+              break;
+          case "Reservaciones":
+              response = "Para reservaciones, llámanos al <strong>+58 987 654 321</strong> o reserva a través de nuestra página web.";
+              break;
+          case "Contacto":
+              response = "Contáctanos al número <strong>+58 987 654 321</strong> o en nuestras redes sociales @lunaMagicaRestaurante.";
+              break;
+          case "Reseñas":
+              response = "Esto dicen nuestros clientes:<br><strong>Juan Pérez</strong>: \"La comida es espectacular y el ambiente mágico.\"<br><strong>María López</strong>: \"¡El mejor restaurante para una cena romántica!\"";
+              break;
+          case "Chef Principal":
+              response = "Nuestro Chef Principal, <strong>Chef Gustavo Luna</strong>, es conocido por sus recetas únicas y creativas.";
+              break;
+          default:
+              response = "Opción no válida, por favor selecciona una opción del menú.";
+      }
 
-document.addEventListener("DOMContentLoaded", () => {
-    addMessage(welcomeMessage, "bot", false);
-    showMainOptions();
-});
+      addMessage(response, "bot");
+      askIfWantMore();
+  }
 
-document.getElementById("send-btn").onclick = sendMessage;
+  function processMenu(menu) {
+      addMessage(`Cliente: He seleccionado el menú: "${menu}"`, "user");
+
+      let response = '';
+      switch (menu) {
+          case "Entradas":
+              response = "Entradas destacadas:<br>- Bruschettas al estilo Luna: $8<br>- Carpaccio de res: $12<br>- Crema de calabaza: $6";
+              break;
+          case "Platos Fuertes":
+              response = "Platos fuertes:<br>- Filete Luna con salsa de hongos: $20<br>- Risotto de camarones: $18<br>- Costillas BBQ: $22";
+              break;
+          case "Postres":
+              response = "Postres:<br>- Cheesecake de frutos rojos: $7<br>- Tiramisú: $6<br>- Helado artesanal: $5";
+              break;
+          case "Bebidas":
+              response = "Bebidas:<br>- Cocteles exclusivos: $10<br>- Vinos de la casa: $15<br>- Jugos naturales: $4";
+              break;
+          default:
+              response = "Opción de menú no válida.";
+      }
+
+      addMessage(response, "bot");
+      askIfWantMore();
+  }
+
+  function askIfWantMore() {
+      addMessage("¿Deseas saber algo más? Si es así, responde solo 'Si'.", "bot", true);
+  }
+
+  function processUserResponse(response) {
+      if (response.toLowerCase() === "si") {
+          showMainOptions();
+      } else {
+          addMessage("¡Gracias por visitarnos! Te esperamos pronto en Luna Mágica.", "bot");
+          toggleChat();
+      }
+  }
+
+  function sendMessage() {
+      const message = userInput.value.trim();
+      if (message !== "") {
+          addMessage(message, "user");
+          userInput.value = "";
+          processUserResponse(message);
+      }
+  }
+
+  function toggleChat() {
+      if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
+          chatContainer.style.display = "flex";  // Muestra el chat
+          chatBtn.style.display = "none";  // Oculta el botón flotante
+      } else {
+          chatContainer.style.display = "none";  // Oculta el chat
+          chatBtn.style.display = "block";  // Muestra el botón flotante
+      }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+      addMessage(welcomeMessage, "bot", false);
+      showMainOptions();
+  });
+
+  document.getElementById("send-btn").onclick = sendMessage;
