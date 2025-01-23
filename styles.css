@@ -1,172 +1,165 @@
 /* Estilo de la sección del menú */
 .menu-section {
   width: 100%;
-  padding: 80px 30px 50px;  /* Aumentar espacio superior */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), #4e73df);  /* Fondo más claro y moderno */
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.2);  /* Sombra más suave */
+  padding: 60px 20px; /* Ajuste del padding para mejor responsividad */
+  background: linear-gradient(135deg, #ffffff, #0008ea);
+  box-shadow: 0 15px 60px rgb(0, 0, 0);
   box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
+  border-radius: 0px;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
   animation: fadeIn 1s ease-out;
+  position: relative;
+  z-index: 10;
   text-align: center;
 }
 
+/* Título dentro de .menu-section */
 .menu-section h2 {
-  font-size: 2.8rem;
-  color: #ffffff !important;
+  font-size: 2.5rem;
+  color: #000000 !important;
   margin: 0;
-  font-weight: 700;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  letter-spacing: 1px;  /* Mejora la legibilidad */
+  font-weight: 600;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.903);
+  animation: fadeInTitle 1s ease-out, floatEffect 3s infinite alternate;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Efectos de animación para el título */
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Contenedor de búsqueda y filtros */
+@keyframes floatEffect {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Contenedor de la búsqueda y categorías */
 .filter-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  flex-wrap: wrap;  /* Asegura que se acomode en móviles */
-  margin-top: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* Asegura que se adapten en pantallas pequeñas */
 }
 
-/* Estilo para el input de búsqueda */
-#search, #category-filter-select {
-  width: 100%;
-  max-width: 350px;  /* Limitar el ancho máximo */
-  padding: 12px 15px;
-  font-size: 16px;
+/* Estilo de la caja de búsqueda */
+.search-box {
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 25px;
   border: 2px solid #ccc;
-  background-color: #ffffff;
-  color: #333;
-  transition: border-color 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);  /* Agregar sombra sutil */
+  width: 250px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#search:focus, #category-filter-select:focus {
-  border-color: #4e73df;
-  box-shadow: 0 0 8px rgba(108, 92, 237, 0.5);
+.search-box:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 10px rgba(108, 92, 237, 0.5);
 }
 
-#search:hover, #category-filter-select:hover {
+/* Estilo de filtro de categorías */
+.category-filter {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  background-color: rgb(255, 255, 255);
+  width: 220px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-filter:hover, .search-box:hover {
   border-color: #6c5ce7;
 }
 
-/* Media Queries para mejor adaptabilidad en dispositivos pequeños */
+/* Contenedor del filtro en pantallas más pequeñas */
 @media (max-width: 768px) {
-  /* Filtro en vertical en pantallas pequeñas */
   .filter-container {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   #search, #category-filter-select {
-    width: 90%;  /* Hacer más anchos los inputs en pantallas pequeñas */
-    font-size: 14px;
+    width: 80%;
+    font-size: 16px;
+    padding: 12px 15px;
   }
 }
 
-@media (max-width: 480px) {
-  /* Ajustes para móviles */
-  .menu-section {
-    padding: 60px 20px 40px;
-  }
-  
-  #search, #category-filter-select {
-    width: 90%;
-    font-size: 14px;
-  }
-}
-
-/* Estilo de los items del menú */
+/* Estilo de los ítems de menú */
 .menu-item {
   background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.1);  /* Sombra más suave */
-  border-radius: 12px;
-  margin: 15px;
-  padding: 20px;
-  width: calc(50% - 30px);
-  max-width: 320px;  /* Máximo ancho para evitar que se estiren demasiado */
+  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  width: calc(50% - 20px);
+  max-width: 300px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  aspect-ratio: 1 / 1;
+  font-family: 'Roboto', sans-serif;
   position: relative;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .menu-item:hover {
-  transform: translateY(-10px);
-  background-color: #f1f1f1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  background-color: #f9f9f9;
 }
 
-/* Imágenes dentro de los items */
 .menu-item img {
   width: 100%;
-  height: 180px;  /* Definir altura fija para uniformidad */
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
 }
 
 .menu-item:hover img {
   transform: scale(1.05);
 }
 
-/* Título y precio del item */
 .menu-item h5 {
+  margin-bottom: 3px;
   font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-weight: bold;
 }
 
 .menu-item p {
+  margin-bottom: 3px;
   font-size: 1rem;
   color: #555;
-  margin-bottom: 12px;
 }
 
-/* Botones de acción */
+/* Estilo de los botones */
 .menu-item button {
-  padding: 10px 18px;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
+  margin-top: 5px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 5px;
-  background-color: #4e73df;
-  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 100%;
-  margin-top: 15px;
 }
 
 .menu-item button:hover {
-  background-color: #3a5bbf;
-  transform: translateY(-5px);
-}
-
-/* Ajustes responsivos */
-@media (min-width: 769px) {
-  .menu-item {
-    width: calc(33.33% - 30px);  /* Ajustar a 3 columnas en pantallas grandes */
-  }
+  background-color: #0056b3;
+  transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
@@ -175,9 +168,37 @@
   }
 }
 
+/* Título del menú */
+.menu-section h2 {
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Media query para dispositivos más pequeños (móviles) */
 @media (max-width: 480px) {
-  .menu-item {
-    width: 100%;  /* Acomoda a pantalla completa en móviles */
+  .menu-section {
+    padding: 20px;
+  }
+
+  #search, #category-filter-select {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .menu-item button {
+    font-size: 10px;
+    padding: 8px;
   }
 }
 
+/* Reset básico para márgenes y padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
