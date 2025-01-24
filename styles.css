@@ -367,34 +367,48 @@ p {
   border: 3px solid #6c5ce7;  /* Línea morada alrededor del contenedor */
   box-shadow: 0 4px 12px rgb(0, 0, 0);  
   border-radius: 10px;
-  margin: 10px;
+  margin: 15px;  /* Espacio entre los contenedores */
   padding: 15px;
-  width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
-  max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
+  width: calc(50% - 30px);  /* Ajusta el tamaño de los contenedores */
+  max-width: 300px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
+  aspect-ratio: 1 / 1;
   position: relative;
   font-family: 'Roboto', sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Añadido para suavizar el hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efecto hover en el contenedor del item */
 .menu-item:hover {
   transform: translateY(-5px);
   background-color: #f9f9f9;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  /* Efecto de sombra más suave */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de los items del menú (para que se distribuyan con espacio entre ellos) */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;  /* Espacio entre los items */
+  gap: 20px;  /* Espacio entre los contenedores */
+  padding: 20px;
 }
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
   .menu-item {
-    width: 100%;  /* En pantallas pequeñas, los items ocupan el 100% */
-    max-width: none;  /* Remover el límite de ancho máximo */
-    margin: 5px 0;  /* Reducir márgenes en móviles */
+    width: 100%;  /* Los items ocupan el 100% en pantallas pequeñas */
+    max-width: none;
+    margin: 10px 0;  /* Reducir el margen en móviles */
+  }
+
+  .container {
+    padding: 10px;  /* Menos padding en pantallas pequeñas */
+    gap: 15px;  /* Reducir espacio entre items en móviles */
   }
 }
 
