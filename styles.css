@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
 }
 
@@ -244,210 +244,494 @@ p {
   }
 }
 
+  
 /* Estilo de la sección del menú */
-.menu-section {
-  width: 100%;
-  padding: 60px 30px;
-  background: linear-gradient(135deg, #ffffff, #0008ea);
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.2);  
-  box-sizing: border-box;
-  border-radius: 8px;
-  transition: all 0.4s ease-in-out;
-  animation: fadeIn 1s ease-out;
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  margin-top: 0;
-}
-
-/* Estilo para el título */
-.menu-section h2 {
-  font-size: 2rem;
-  color: #000000;
-  margin: 0;
-  font-weight: 600;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-}
-
-/* Estilos de los inputs y filtros */
-.search-box, .category-filter {
-  padding: 12px 18px;
-  font-size: 1rem;
-  border-radius: 25px;
-  border: 2px solid #ccc;
-  width: 220px;
-  transition: all 0.3s ease;
-}
-
-.search-box:focus, .category-filter:focus {
-  outline: none;
-  border-color: #6c5ce7;
-  box-shadow: 0 0 10px rgba(108, 92, 237, 0.5);
-}
-
-.search-box:hover, .category-filter:hover {
-  border-color: #6c5ce7;
-}
-
-/* Contenedor del filtro */
-.filter-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-/* Contenedor del menú */
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* Estilo para el contenedor principal de la sección del menú */
-.menu-item {
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
-  border-radius: 10px;
-  margin: 10px;
-  padding: 15px; /* Mantén el padding original */
-  width: calc(50% - 20px); /* Mantén la mitad del contenedor para pantallas pequeñas */
-  max-width: 300px; /* Establece un ancho máximo para evitar que los contenedores se alarguen demasiado */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  aspect-ratio: 1 / 1; /* Mantener el contenedor cuadrado */
-  position: relative;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Aseguramos que en pantallas grandes se mantenga el tamaño anterior */
-@media screen and (min-width: 1024px) {
-  .menu-item {
-    width: calc(33.33% - 60px);  /* Reducir el tamaño para permitir más separación entre los items */
-    margin: 10px 30px;  /* Separar los items con 30px de margen horizontal */
-  }
-
-  .menu-container {
-    display: flex;
-    flex-wrap: wrap;   /* Permite el salto de línea y la alineación adecuada */
-    justify-content: space-between;  /* Espacio uniforme entre columnas */
-    gap: 50px 50px;   /* Aumentar el espacio entre las columnas */
-  }
-}
-
-/* En pantallas más pequeñas como las móviles (480px) */
-@media (max-width: 480px) {
-  .menu-item {
-    width: calc(100% - 20px);  /* El contenedor se ajusta al 100% del ancho del contenedor padre */
+  .menu-section {
+    width: 100%;  
+    padding: 60px 30px;  
+    background: linear-gradient(135deg, #ffffff, #0008ea);  
+    box-shadow: 0 15px 60px rgb(0, 0, 0);  
+    box-sizing: border-box;
+    border-radius: 0px;  
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-top: 0;
+    padding: 60px 30px;  
   }
   
-  .menu-item button {
-    font-size: 10px;  
-    padding: 8px;  
+  /* Estilo para el título dentro de .menu-section */
+  .menu-section h2 {
+    font-size: 2.5rem;
+    color: #000000 !important;   
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.903);
   }
-
-  /* Ajuste de los inputs de búsqueda */
-  #search, #category-filter-select {
-    width: 90%;
-    font-size: 16px;
-  }
-}
-
-
-/* Efecto hover en el item */
-.menu-item:hover {
-  transform: translateY(-5px);
-  background-color: #f9f9f9;
-}
-
-/* Imagen dentro del item */
-.menu-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Efecto hover en la imagen */
-.menu-item:hover img {
-  transform: scale(1.05);
-}
-
-/* Nombre del plato */
-.menu-item h5 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* Precio del plato */
-.menu-item p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-/* Estilo de los botones */
-.menu-item button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.menu-item button:hover {
-  background-color: #0056b3;
-}
-
-/* Media query para pantallas grandes */
-@media (min-width: 1024px) {
-  .menu-item {
-    width: calc(33.33% - 40px);
-  }
-}
-
-/* Media query para pantallas medianas (tablets) */
-@media (max-width: 1024px) {
-  .menu-item {
-    width: calc(50% - 30px);
-  }
-}
-
-/* Media query para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-  .menu-item {
+   
+  /* Contenedor de partículas (fondo dinámico) */
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-bottom: 20px;
+    height: 100%;
+    z-index: -1;
   }
-
+  
+  /* Contenedor del filtro */
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  /* Estilo para el input de búsqueda */
+  .search-box {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    width: 250px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-box:focus {
+    outline: none;
+    border-color: #6c5ce7;
+  }
+  
+  /* Estilo para el select del filtro */
+  .category-filter {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    width: 220px;
+    transition: all 0.3s ease;
+  }
+  
+  .category-filter:hover, .search-box:hover {
+    border-color: #6c5ce7;
+  }
+  
+  /* Animación para las categorías */
+  .category-filter, .search-box {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-filter:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 10px rgba(108, 92, 237, 0.5);
+  }
+  /* Estilo para el contenedor principal de la sección del menú */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+   
+  /* Contenedor principal de los items del menú */
+  .menu-item {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;  /* Reducir el padding general */
+    width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
+    max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Efecto hover en el contenedor del item */
+  .menu-item:hover {
+    transform: translateY(-5px);
+    background-color: #f9f9f9;  
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
+  }
+  
+  /* Imagen dentro del item del menú */
+  .menu-item img {
+    width: 100%;       /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 100%;      /* Asegura que la imagen ocupe todo el alto del contenedor */
+    object-fit: cover; /* La imagen se ajusta al contenedor sin distorsionar, pero puede recortarse */
+    border-radius: 10px;
+    margin-bottom: 5px;  /* Reducir el margen inferior */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Efecto de hover en la imagen */
+  .menu-item:hover img {
+    transform: scale(1.05);  
+  }
+  
+  /* Estilo para el nombre del plato */
+  .menu-item h5 {
+    margin-bottom: 3px; /* Reducir aún más el espacio entre el nombre y el precio */
+    font-size: 1.2rem;  /* Ajusta el tamaño del texto si es necesario */
+    font-weight: bold;
+  }
+  
+  /* Estilo para el precio del plato */
+  .menu-item p {
+    margin-bottom: 3px; /* Reducir aún más el espacio entre el precio y el botón */
+    font-size: 1rem;    /* Ajusta el tamaño del texto si es necesario */
+    color: #555;
+  }
+  
+  /* Estilo para los botones */
   .menu-item button {
-    width: 100%;
+    margin-top: 5px;  /* Reducir el espacio entre el precio y el botón */
+    padding: 8px 16px;  /* Ajustar el padding del botón para que no sea tan grande */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .menu-item button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Asegurar que los contenedores se ajusten bien en pantallas grandes */
+  @media screen and (min-width: 1024px) {
+    /* Ajuste del ancho de cada contenedor y margen entre columnas */
+    .menu-item {
+      width: calc(33.33% - 60px);  /* Reducir el tamaño para permitir más separación */
+      margin: 10px 30px;  /* Separar los items con 30px de margen horizontal */
+    }
+    
+    /* Contenedor principal para los elementos de menú */
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;   /* Para permitir el salto de línea y la alineación adecuada */
+      justify-content: space-between;  /* Espacio uniforme entre columnas */
+      gap: 50px 50px;   /* Aumentar el espacio entre las columnas */
+    }
+  }
+  
+  
+  
+  
+  
+   
+  /* Título del item del menú */
+  .menu-item h3 {
+    margin: 10px 0;
     font-size: 12px;
+    color: #000;
+    transition: color 0.3s ease-in-out;
+    font-weight: 600;  
   }
-
-  #search, #category-filter-select {
-    width: 80%;
+  
+  /* Efecto de hover en el título */
+  .menu-item:hover h3 {
+    color: #4e73df;  
   }
-}
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
- 
+  
+  /* Descripción o precio del item */
+  .menu-item p {
+    margin: 5px 0 10px;
+    font-size: 14px;
+    color: #00800b;
+    font-weight: bold;  
+  }
+   
+  
+  /* Estilo para el botón dentro del item */
+  .menu-item button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background-color: #1a73e8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efecto hover en el botón */
+  .menu-item button:hover {
+    background-color: #174ea6;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  
+   
+  @media (max-width: 768px) {
+    /* Eliminar efecto hover en el contenedor de los platos */
+    .menu-item:hover {
+      transform: none;  
+      background-color: #fff;  
+      box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
+    }
+  
+    /* Eliminar efecto hover en las imágenes */
+    .menu-item:hover img {
+      transform: scale(1);  
+    }
+  
+    /* Eliminar efecto hover en el título */
+    .menu-item:hover h3 {
+      color: #000;  
+    }
+    
+    /* Eliminar efecto hover en los botones */
+    .menu-item button:hover {
+      background-color: #28a745;  
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+      transform: none;  
+    }
+  }
+    
+  /* Estilo del contenedor de la cantidad */
+  .quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;  
+  }
+  
+  .quantity-container span {
+    font-size: 0.9rem;  
+    color: #333;
+    margin-right: 6px;  
+    font-weight: 600;
+  }
+  
+  .quantity-input {
+    width: 35px;  
+    padding: 3px;  
+    border-radius: 5px;
+    border: 1px solid #ff9900;
+    text-align: center;
+    font-size: 0.9rem;  
+  }
+  
+  .quantity-input:focus {
+    border-color: #ff6600;
+  }
+   
+  /* Botón con fondo verde */
+  .menu-item button:nth-of-type(1) {
+    background-color: #28a745;  
+    color: #fff;
+  }
+  
+  .menu-item button:nth-of-type(1):hover {
+    background-color: #218838;  
+  }
+  
+  /* Media query para pantallas más pequeñas (móviles) */
+  @media (max-width: 480px) {
+     
+    .menu-item button {
+      font-size: 10px;  
+      padding: 8px;  
+    }
+  
+    #search, #category-filter-select {
+      width: 90%;
+      font-size: 16px;
+    }
+  }
+  
+  /* Estilos para el botón "Leer más" */
+  .read-more-button {
+    background-color: #007bff;  
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;  
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-more-button:hover {
+    background-color: #0056b3;  
+  }
+  
+   
+  /* Título del menú */
+  .menu-section h2 {
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif;  
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);  
+    animation: fadeInTitle 1s ease-out, floatEffect 3s infinite alternate;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  /* Animación de desvanecimiento y movimiento suave para el título */
+  @keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Efecto de flotación constante (mueve el título arriba y abajo) */
+  @keyframes floatEffect {
+    0% {
+        transform: translateY(0);  
+    }
+    50% {
+        transform: translateY(-10px);  
+    }
+    100% {
+        transform: translateY(0);  
+    }
+  }
+  
+  /* Contenedor del filtro (búsqueda y categorías), centrado */
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Estilo del input de búsqueda */
+  #search {
+    width: 25%;
+    padding: 12px 15px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 0px;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Estilo del select de categorías */
+  #category-filter-select {
+    width: 25%;
+    padding: 12px 15px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 0px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Estilo para el contenedor de partículas (si es necesario) */
+  #particles-container {
+    width: 100%;
+    height: 300px;
+    background-color: #f4f4f4;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+  
+    #search, #category-filter-select {
+        width: 80%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+  }
+  
+  /* Media query para pantallas más pequeñas (móviles) */
+  @media (max-width: 480px) {
+    .menu-section {
+        padding: 20px;
+    }
+  
+    #search, #category-filter-select {
+        width: 90%;
+        font-size: 16px;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .menu-item {
+        width: calc(33.33% - 20px);
+    }
+  
+    .menu-item button {
+        padding: 10px;
+        font-size: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .menu-item {
+        width: calc(50% - 20px);
+    }
+  }
+  
+  /* Reset básico para márgenes y padding */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+   
+  
+  /* Estilos para el modal */
+  .modal {
+    display: none;  
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);  
+    padding-top: 60px;
+    z-index: 1050;   
+  }
+  
+   
+  header {
+    z-index: 1;   
+  }
+  
   /* Fondo oscuro detrás del modal */
   .modal-overlay {
     position: fixed;
@@ -551,3 +835,36 @@ p {
   }
 
   
+/* Botón flotante que abre el chat */
+.chat-btn {
+  position: fixed;
+  bottom: 20px;  
+  right: 20px;  
+  width: 50px;  
+  height: 50px;  
+  background-color: #007acc;
+  border-radius: 50%;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen del ícono dentro del botón */
+.chat-btn img {
+  width: 100%;  
+  height: 100%;
+  object-fit: cover;   
+  border-radius: 50%;  
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover para el botón flotante */
+.chat-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
