@@ -360,13 +360,13 @@ p {
   }
 }
 
-   /* Contenedor principal de los items del menú */
+/* Contenedor principal de los items del menú */
 .menu-item {
   background-color: #fff;
   box-shadow: 0 4px 12px rgb(0, 0, 0);  
   border-radius: 10px;
   margin: 10px;
-  padding: 15px;  /* Reducir el padding general */
+  padding: 15px;
   width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
   max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
   box-sizing: border-box;
@@ -378,6 +378,7 @@ p {
   position: relative;
   font-family: 'Roboto', sans-serif;
   border: 2px solid #6c5ce7; /* Línea morada alrededor del contenedor */
+  overflow: hidden; /* Evitar que la imagen se desborde del contenedor */
 }
 
 /* Efecto hover en el contenedor del item */
@@ -389,230 +390,126 @@ p {
 }
 
 /* Imagen dentro del item del menú */
-  .menu-item img {
-    width: 100%;       /* Asegura que la imagen ocupe todo el ancho del contenedor */
-    height: 100%;      /* Asegura que la imagen ocupe todo el alto del contenedor */
-    object-fit: cover; /* La imagen se ajusta al contenedor sin distorsionar, pero puede recortarse */
-    border-radius: 10px;
-    margin-bottom: 5px;  /* Reducir el margen inferior */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
+.menu-item img {
+  width: 100%;       /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: 100%;      /* Asegura que la imagen ocupe todo el alto del contenedor */
+  object-fit: cover; /* La imagen se ajusta al contenedor sin distorsionar, pero puede recortarse */
+  border-radius: 10px;
+  margin-bottom: 5px;  /* Reducir el margen inferior */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+  position: absolute;  /* Asegura que la imagen no afecte a los otros elementos */
+  top: 0;
+  left: 0;
+  z-index: -1;         /* Coloca la imagen detrás de los otros elementos */
+}
+
+/* Efecto de hover en la imagen */
+.menu-item:hover img {
+  transform: scale(1.05);  
+}
+
+/* Estilo para el nombre del plato */
+.menu-item h5 {
+  margin-bottom: 3px;
+  font-size: 1.2rem;  
+  font-weight: bold;
+  z-index: 1; /* Asegura que el título quede por encima de la imagen */
+}
+
+/* Estilo para el precio del plato */
+.menu-item p {
+  margin-bottom: 3px;
+  font-size: 1rem;
+  color: #555;
+  z-index: 1;
+}
+
+/* Estilo para los botones */
+.menu-item button {
+  margin-top: 5px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1; /* Asegura que el botón quede por encima de la imagen */
+}
+
+.menu-item button:hover {
+  background-color: #0056b3;
+}
+
+/* Asegurar que los contenedores se ajusten bien en pantallas grandes */
+@media screen and (min-width: 1024px) {
+  .menu-item {
+    width: calc(33.33% - 60px);  /* Reducir el tamaño para permitir más separación */
+    margin: 10px 30px;  /* Separar los items con 30px de margen horizontal */
   }
-  
-  /* Efecto de hover en la imagen */
-  .menu-item:hover img {
-    transform: scale(1.05);  
+
+  /* Contenedor principal para los elementos de menú */
+  .menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 50px 50px;   /* Aumentar el espacio entre las columnas */
   }
-  
-  /* Estilo para el nombre del plato */
-  .menu-item h5 {
-    margin-bottom: 3px; /* Reducir aún más el espacio entre el nombre y el precio */
-    font-size: 1.2rem;  /* Ajusta el tamaño del texto si es necesario */
-    font-weight: bold;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .menu-item {
+    width: calc(50% - 20px); /* Ajuste para pantallas pequeñas */
   }
-  
-  /* Estilo para el precio del plato */
-  .menu-item p {
-    margin-bottom: 3px; /* Reducir aún más el espacio entre el precio y el botón */
-    font-size: 1rem;    /* Ajusta el tamaño del texto si es necesario */
-    color: #555;
-  }
-  
-  /* Estilo para los botones */
+}
+
+/* Media query para pantallas móviles */
+@media (max-width: 480px) {
   .menu-item button {
-    margin-top: 5px;  /* Reducir el espacio entre el precio y el botón */
-    padding: 8px 16px;  /* Ajustar el padding del botón para que no sea tan grande */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 10px;
+    padding: 8px;
   }
-  
-  .menu-item button:hover {
-    background-color: #0056b3;
+}
+
+/* Título del menú */
+.menu-section h2 {
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;  
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);  
+  animation: fadeInTitle 1s ease-out, floatEffect 3s infinite alternate;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Animación de desvanecimiento y movimiento suave para el título */
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  /* Asegurar que los contenedores se ajusten bien en pantallas grandes */
-  @media screen and (min-width: 1024px) {
-    /* Ajuste del ancho de cada contenedor y margen entre columnas */
-    .menu-item {
-      width: calc(33.33% - 60px);  /* Reducir el tamaño para permitir más separación */
-      margin: 10px 30px;  /* Separar los items con 30px de margen horizontal */
-    }
-    
-    /* Contenedor principal para los elementos de menú */
-    .menu-container {
-      display: flex;
-      flex-wrap: wrap;   /* Para permitir el salto de línea y la alineación adecuada */
-      justify-content: space-between;  /* Espacio uniforme entre columnas */
-      gap: 50px 50px;   /* Aumentar el espacio entre las columnas */
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  
-  
-  
-  
-   
-  /* Título del item del menú */
-  .menu-item h3 {
-    margin: 10px 0;
-    font-size: 12px;
-    color: #000;
-    transition: color 0.3s ease-in-out;
-    font-weight: 600;  
+}
+
+/* Efecto de flotación constante (mueve el título arriba y abajo) */
+@keyframes floatEffect {
+  0% {
+    transform: translateY(0);
   }
-  
-  /* Efecto de hover en el título */
-  .menu-item:hover h3 {
-    color: #4e73df;  
+  50% {
+    transform: translateY(-10px);
   }
-  
-  /* Descripción o precio del item */
-  .menu-item p {
-    margin: 5px 0 10px;
-    font-size: 14px;
-    color: #00800b;
-    font-weight: bold;  
+  100% {
+    transform: translateY(0);
   }
-   
-  
-  /* Estilo para el botón dentro del item */
-  .menu-item button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    background-color: #1a73e8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Efecto hover en el botón */
-  .menu-item button:hover {
-    background-color: #174ea6;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-  }
-  
-   
-  @media (max-width: 768px) {
-    /* Eliminar efecto hover en el contenedor de los platos */
-    .menu-item:hover {
-      transform: none;  
-      background-color: #fff;  
-      box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
-    }
-  
-    /* Eliminar efecto hover en las imágenes */
-    .menu-item:hover img {
-      transform: scale(1);  
-    }
-  
-    /* Eliminar efecto hover en el título */
-    .menu-item:hover h3 {
-      color: #000;  
-    }
-    
-    /* Eliminar efecto hover en los botones */
-    .menu-item button:hover {
-      background-color: #28a745;  
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
-      transform: none;  
-    }
-  }
-    
-  
-  
-   
-  /* Botón con fondo verde */
-  .menu-item button:nth-of-type(1) {
-    background-color: #28a745;  
-    color: #fff;
-  }
-  
-  .menu-item button:nth-of-type(1):hover {
-    background-color: #218838;  
-  }
-  
-  /* Media query para pantallas más pequeñas (móviles) */
-  @media (max-width: 480px) {
-     
-    .menu-item button {
-      font-size: 10px;  
-      padding: 8px;  
-    }
-  
-    #search, #category-filter-select {
-      width: 90%;
-      font-size: 16px;
-    }
-  }
-  
-  /* Estilos para el botón "Leer más" */
-  .read-more-button {
-    background-color: #007bff;  
-    color: white;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;  
-    transition: background-color 0.3s ease;
-  }
-  
-  .read-more-button:hover {
-    background-color: #0056b3;  
-  }
-  
-   
-  /* Título del menú */
-  .menu-section h2 {
-    font-size: 32px;
-    font-family: 'Roboto', sans-serif;  
-    color: #fff;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 30px;
-    text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);  
-    animation: fadeInTitle 1s ease-out, floatEffect 3s infinite alternate;
-    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  }
-  
-  /* Animación de desvanecimiento y movimiento suave para el título */
-  @keyframes fadeInTitle {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-  }
-  
-  /* Efecto de flotación constante (mueve el título arriba y abajo) */
-  @keyframes floatEffect {
-    0% {
-        transform: translateY(0);  
-    }
-    50% {
-        transform: translateY(-10px);  
-    }
-    100% {
-        transform: translateY(0);  
-    }
-  }
+}
+
   
   
   
