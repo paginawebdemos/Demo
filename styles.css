@@ -378,7 +378,7 @@ p {
   position: relative;
   font-family: 'Roboto', sans-serif;
   border: 2px solid #6c5ce7; /* Línea morada alrededor del contenedor */
-  overflow: hidden; /* Evitar que el contenido se desborde */
+  overflow: hidden; /* Evitar que el contenido sobresalga */
 }
 
 /* Efecto hover en el contenedor del item */
@@ -428,19 +428,23 @@ p {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;  /* Asegura que el botón ocupe todo el ancho del contenedor */
+  box-sizing: border-box;
 }
 
+/* Efecto hover en el botón */
 .menu-item button:hover {
   background-color: #0056b3;
 }
 
 /* Asegurar que los contenedores se ajusten bien en pantallas grandes */
 @media screen and (min-width: 1024px) {
+  /* Ajuste del ancho de cada contenedor y margen entre columnas */
   .menu-item {
     width: calc(33.33% - 60px);  /* Reducir el tamaño para permitir más separación */
     margin: 10px 30px;  /* Separar los items con 30px de margen horizontal */
   }
-  
+
   /* Contenedor principal para los elementos de menú */
   .menu-container {
     display: flex;
@@ -448,6 +452,64 @@ p {
     justify-content: space-between;  /* Espacio uniforme entre columnas */
     gap: 50px 50px;   /* Aumentar el espacio entre las columnas */
   }
+}
+
+/* Título del item del menú */
+.menu-item h3 {
+  margin: 10px 0;
+  font-size: 12px;
+  color: #000;
+  transition: color 0.3s ease-in-out;
+  font-weight: 600;  
+}
+
+/* Efecto de hover en el título */
+.menu-item:hover h3 {
+  color: #4e73df;  
+}
+
+/* Descripción o precio del item */
+.menu-item p {
+  margin: 5px 0 10px;
+  font-size: 14px;
+  color: #00800b;
+  font-weight: bold;  
+}
+
+/* Estilo para el botón dentro del item */
+.menu-item button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background-color: #1a73e8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.menu-item button:hover {
+  background-color: #174ea6;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Botón con fondo verde */
+.menu-item button:nth-of-type(1) {
+  background-color: #28a745;  
+  color: #fff;
+}
+
+.menu-item button:nth-of-type(1):hover {
+  background-color: #218838;  
 }
 
 /* Media query para pantallas más pequeñas (móviles) */
@@ -460,87 +522,6 @@ p {
   #search, #category-filter-select {
     width: 90%;
     font-size: 16px;
-  }
-}
-
-/* Estilos para el botón "Leer más" */
-.read-more-button {
-  background-color: #007bff;  
-  color: white;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;  
-  transition: background-color 0.3s ease;
-}
-
-.read-more-button:hover {
-  background-color: #0056b3;  
-}
-
-/* Título del menú */
-.menu-section h2 {
-  font-size: 32px;
-  font-family: 'Roboto', sans-serif;  
-  color: #fff;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);  
-  animation: fadeInTitle 1s ease-out, floatEffect 3s infinite alternate;
-  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* Animación de desvanecimiento y movimiento suave para el título */
-@keyframes fadeInTitle {
-  0% {
-      opacity: 0;
-      transform: translateY(-10px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-/* Efecto de flotación constante (mueve el título arriba y abajo) */
-@keyframes floatEffect {
-  0% {
-      transform: translateY(0);  
-  }
-  50% {
-      transform: translateY(-10px);  
-  }
-  100% {
-      transform: translateY(0);  
-  }
-}
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .filter-container {
-      flex-direction: column;
-      gap: 15px;
-  }
-
-  #search, #category-filter-select {
-      width: 80%;
-      font-size: 16px;
-      padding: 12px 15px;
-  }
-}
-
-/* Media query para pantallas más pequeñas (móviles) */
-@media (max-width: 480px) {
-  .menu-section {
-      padding: 20px;
-  }
-
-  #search, #category-filter-select {
-      width: 90%;
-      font-size: 16px;
   }
 }
 
