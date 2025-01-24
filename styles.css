@@ -367,9 +367,9 @@ p {
   border: 3px solid #6c5ce7;  /* Línea morada alrededor del contenedor */
   box-shadow: 0 4px 12px rgb(0, 0, 0);  
   border-radius: 10px;
-  margin: 30px;  /* Aumentado el margen para más espacio entre los elementos */
+  margin: 15px;  /* Aumentado el margen para dar más espacio entre los contenedores */
   padding: 15px;
-  width: calc(50% - 60px);  /* Ajustado para que haya más espacio en pantallas pequeñas */
+  width: calc(50% - 30px);  /* Ajustado para tener más espacio entre los items */
   max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
   box-sizing: border-box;
   display: flex;
@@ -394,11 +394,9 @@ p {
   .menu-item {
     width: 100%;  /* En pantallas pequeñas, los items ocupan el 100% */
     max-width: none;  /* Remover el límite de ancho máximo */
-    margin: 20px 0;  /* Aumentado el espacio entre los items en pantallas pequeñas */
+    margin: 10px 0;  /* Aumentado el margen en móviles para separar los items */
   }
 }
-
-
 
 
 
