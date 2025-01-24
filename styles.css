@@ -1,5 +1,6 @@
 /* Estilo general */
 body {
+  perspective: 1500px; /* Establece el área 3D */
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -50,10 +51,7 @@ body {
   font-weight: bold;
   text-align: center;
 }
-/* Contenedor principal de la página (se aplica la perspectiva 3D) */
-body {
-  perspective: 1500px; /* Establece el área 3D */
-}
+
 
 /* Estilos para el contenedor de bienvenida */
 #welcome-container {
