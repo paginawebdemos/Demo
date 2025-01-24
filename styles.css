@@ -403,14 +403,15 @@ p {
   .menu-item {
     width: 100%;  /* Los items ocupan el 100% en pantallas pequeñas */
     max-width: none;
-    margin: 8px 0;  /* Reducir el margen en móviles */
+    margin: 5px 0;  /* Reducir aún más el margen en móviles */
   }
 
   .container {
     padding: 10px;  /* Menos padding en pantallas pequeñas */
-    gap: 10px;  /* Reducir espacio entre items en móviles */
+    gap: 5px;  /* Reducir aún más el espacio entre items en móviles */
   }
 }
+
 
 
 
