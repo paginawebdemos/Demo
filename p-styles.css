@@ -3,11 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background-color: #000000;
+    background-color: #000000; /* Fondo negro */
     color: white;
     display: flex;
     justify-content: center;
@@ -17,12 +17,14 @@ body {
     font-size: 16px;
 }
 
+/* Fondo con partículas dinámicas */
 #particles-js {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: #000; /* Fondo negro para las partículas */
     z-index: 1;
 }
 
@@ -32,113 +34,92 @@ body {
     z-index: 2;
     text-align: center;
     max-width: 900px;
-    padding: 50px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-}
-
-.content-container {
-    max-width: 850px;
-    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8); /* Sombra suave */
+    border-radius: 10px; /* Bordes redondeados */
 }
 
 /* Título */
-.title {
+h1 {
     font-size: 50px;
-    font-weight: 900;
+    margin-bottom: 20px;
+    font-weight: bold;
     color: #00bcd4;
-    text-shadow: 0px 0px 20px rgba(0, 188, 212, 0.7);
-    letter-spacing: 1px;
-    transition: all 0.3s ease-in-out;
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
 
-.title:hover {
-    color: #03a9f4;
-    text-shadow: 0px 0px 30px rgba(0, 188, 212, 1);
+h1:hover {
+    color: #0288d1;
+    text-shadow: 3px 3px 30px rgba(0, 0, 0, 0.9);
 }
 
 /* Descripción del Negocio */
 .business-description {
     font-size: 18px;
-    color: #ccc;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeIn 2s forwards 0.5s;
+    color: #ddd;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-align: justify;
+    opacity: 0.8;
 }
 
 /* Botón */
 .welcome-button {
     background-color: #00bcd4;
     color: #fff;
-    padding: 18px 35px;
-    font-size: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
     border-radius: 50px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0px 6px 20px rgba(0, 188, 212, 0.6);
-    transition: all 0.4s ease-in-out;
-    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 188, 212, 0.6);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 2;
 }
 
 .welcome-button:hover {
     background-color: #0288d1;
-    box-shadow: 0px 6px 25px rgba(0, 123, 255, 0.8);
-    transform: translateY(-5px);
-}
-
-.welcome-button:active {
-    transform: translateY(2px);
+    box-shadow: 0px 5px 25px rgba(0, 123, 255, 0.8);
+    transform: scale(1.1);
 }
 
 /* Descripción del Botón */
 .button-description {
-    margin-top: 40px;
+    margin-top: 30px;
     color: #aaa;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.8;
-    opacity: 0;
-    animation: fadeIn 2s forwards 1s;
+    opacity: 0.8;
 }
 
 /* Redes Sociales */
 .social-media {
-    margin-top: 50px;
-    transition: all 0.3s ease-in-out;
+    margin-top: 40px;
+    z-index: 2;
 }
 
 .social-icon {
     color: #fff;
-    font-size: 35px;
-    margin: 0 20px;
-    padding: 10px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    font-size: 30px;
+    margin: 0 15px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .social-icon:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
-.social-icon.instagram:hover {
-    background-color: #E1306C;
+.instagram:hover {
+    color: #E1306C;
 }
 
-.social-icon.facebook:hover {
-    background-color: #3b5998;
-}
-
-/* Animación de Entrada */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.facebook:hover {
+    color: #3b5998;
 }
 
 /* Footer */
@@ -154,8 +135,8 @@ body {
 
 /* Medios Responsivos */
 @media (max-width: 768px) {
-    .title {
-        font-size: 40px;
+    h1 {
+        font-size: 36px;
     }
 
     .business-description {
@@ -163,11 +144,10 @@ body {
     }
 
     .welcome-button {
-        padding: 15px 30px;
+        padding: 12px 25px;
     }
 
     .social-icon {
-        font-size: 30px;
-        margin: 0 10px;
+        font-size: 25px;
     }
 }
