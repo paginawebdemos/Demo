@@ -3,9 +3,10 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
 }
+
 
 /* Animaciones */
 @keyframes spin {
@@ -220,16 +221,7 @@ p {
     font-weight: 600;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.382);
   }
-   
-  /* Contenedor de partículas (fondo dinámico) */
-  #particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
+  
   
   /* Contenedor del filtro */
   .filter-container {
@@ -292,7 +284,7 @@ p {
   /* Contenedor principal de los items del menú */
   .menu-item {
     background-color: #fff;
-    box-shadow: 0 4px 12px rgb(0, 0, 0);  
+    box-shadow: 0 4px 12px #6c5ce7;  
     border-radius: 10px;
     margin: 10px;
     padding: 15px;  /* Reducir el padding general */
@@ -308,6 +300,7 @@ p {
     font-family: 'Roboto', sans-serif;
     border: 2px solid #6c5ce7; /* Línea morada alrededor del contenedor */
   }
+  
   
   /* Efecto hover en el contenedor del item */
   .menu-item:hover {
