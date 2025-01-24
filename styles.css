@@ -51,12 +51,6 @@ body {
   font-weight: bold;
   text-align: center;
 }
-
-/* Contenedor principal de la página (se aplica la perspectiva 3D) */
-body {
-  perspective: 1500px; /* Establece el área 3D */
-}
-
 /* Estilos para el contenedor de bienvenida */
 #welcome-container {
   max-width: 900px;
