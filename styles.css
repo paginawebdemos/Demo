@@ -641,18 +641,20 @@ p {
   }
   
   
-  .modal-content {
+.modal-content {
+    position: absolute; /* Cambiar a absoluto para posicionar dinámicamente */
     background-color: #fff;
-    margin: 5% auto;
+    margin: 0; /* Quitar márgenes automáticos */
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
     border-radius: 8px;
     text-align: center;
-    position: relative;
-    overflow: hidden;  
-  }
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Mejora visual */
+}
+
   
   .close {
     color: #aaa;
