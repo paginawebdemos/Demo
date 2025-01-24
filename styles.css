@@ -51,12 +51,19 @@ body {
   font-weight: bold;
   text-align: center;
 }
+/* Fondo negro para la página, sin cambiar el fondo del body */
+#welcome-section-wrapper {
+  background-color: #000;  /* Fondo negro para el área de bienvenida */
+  padding: 20px 0;  /* Agrega un poco de espacio alrededor del contenedor */
+  min-height: 100vh;  /* Asegura que ocupe al menos todo el alto de la pantalla */
+}
+
 /* Estilos para el contenedor de bienvenida */
 #welcome-container {
   max-width: 900px;
   margin: 50px auto;
   padding: 30px;
-  background-color: #ffffff;
+  background-color: #ffffff;  /* Mantener el fondo blanco del contenedor */
   border-radius: 12px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3); /* Sombra intensa */
   text-align: center;
@@ -188,6 +195,7 @@ p {
         padding: 10px 20px;
     }
 }
+
   
 /* Estilo de la sección del menú */
 .menu-section {
