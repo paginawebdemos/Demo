@@ -609,21 +609,6 @@ p {
     }
     
    
-  .modal-content {
-    background-color: #fff;
-    position: absolute; /* Cambiado de 'relative' a 'absolute' para control directo */
-    top: 50%; /* Centrado vertical */
-    left: 50%; /* Centrado horizontal */
-    transform: translate(-50%, -50%); /* Ajuste para centrar exactamente */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-    text-align: center;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Mejora estética */
-}
 
   /* Estilos para el modal */
   .modal {
