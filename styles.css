@@ -610,6 +610,7 @@ p {
     
    
 
+  
   /* Estilos para el modal */
   .modal {
     display: none;  
@@ -641,20 +642,18 @@ p {
   }
   
   
-.modal-content {
-    position: absolute; /* Cambiar a absoluto para posicionar dinámicamente */
+  .modal-content {
     background-color: #fff;
-    margin: 0; /* Quitar márgenes automáticos */
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
     border-radius: 8px;
     text-align: center;
-    overflow: hidden;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Mejora visual */
-}
-
+    position: relative;
+    overflow: hidden;  
+  }
   
   .close {
     color: #aaa;
@@ -732,8 +731,6 @@ p {
         font-size: 1rem;  
     }
   }
-
-
   
 /* Botón flotante que abre el chat */
 .chat-btn {
