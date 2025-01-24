@@ -3,10 +3,9 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #000000;
   color: rgb(0, 0, 0);
 }
-
 
 /* Animaciones */
 @keyframes spin {
@@ -52,6 +51,10 @@ body {
   text-align: center;
 }
 
+/* Contenedor principal de la página (se aplica la perspectiva 3D) */
+body {
+  perspective: 1500px; /* Establece el área 3D */
+}
 
 /* Estilos para el contenedor de bienvenida */
 #welcome-container {
@@ -606,6 +609,7 @@ p {
     }
     
    
+  
   
   
   /* Estilos para el modal */
