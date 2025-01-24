@@ -364,12 +364,11 @@ p {
 /* Contenedor principal de los items del menú */
 .menu-item {
   background-color: #fff;
-  border: 3px solid #6c5ce7;  /* Línea morada alrededor del contenedor */
   box-shadow: 0 4px 12px rgb(0, 0, 0);  
   border-radius: 10px;
-  margin: 15px;  /* Aumentado el margen para dar más espacio entre los contenedores */
-  padding: 15px;
-  width: calc(50% - 30px);  /* Ajustado para tener más espacio entre los items */
+  margin: 10px;
+  padding: 15px;  /* Reducir el padding general */
+  width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
   max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
   box-sizing: border-box;
   display: flex;
@@ -379,25 +378,16 @@ p {
   aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
   position: relative;
   font-family: 'Roboto', sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Añadido para suavizar el hover */
+  border: 2px solid #6c5ce7; /* Línea morada alrededor del contenedor */
 }
 
 /* Efecto hover en el contenedor del item */
 .menu-item:hover {
   transform: translateY(-5px);
-  background-color: #f9f9f9;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  /* Efecto de sombra más suave */
+  background-color: #f9f9f9;  
+  box-shadow: 0 4px 12px rgb(0, 0, 0);  
+  border-color: #a29bfe; /* Cambiar el color del borde a un tono más claro al hacer hover */
 }
-
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 768px) {
-  .menu-item {
-    width: 100%;  /* En pantallas pequeñas, los items ocupan el 100% */
-    max-width: none;  /* Remover el límite de ancho máximo */
-    margin: 10px 0;  /* Aumentado el margen en móviles para separar los items */
-  }
-}
-
 
 
   
