@@ -3,11 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background-color: #1c1c1c;
+    background-color: #000000;
     color: white;
     display: flex;
     justify-content: center;
@@ -23,6 +23,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 /* Contenedor Principal */
@@ -31,77 +32,113 @@ body {
     z-index: 2;
     text-align: center;
     max-width: 900px;
-    padding: 20px;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.content-container {
+    max-width: 850px;
+    margin: auto;
 }
 
 /* Título */
-h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    font-weight: bold;
+.title {
+    font-size: 50px;
+    font-weight: 900;
     color: #00bcd4;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 0px 20px rgba(0, 188, 212, 0.7);
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.title:hover {
+    color: #03a9f4;
+    text-shadow: 0px 0px 30px rgba(0, 188, 212, 1);
 }
 
 /* Descripción del Negocio */
 .business-description {
     font-size: 18px;
     color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 2s forwards 0.5s;
 }
 
 /* Botón */
 .welcome-button {
     background-color: #00bcd4;
     color: #fff;
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
+    padding: 18px 35px;
+    font-size: 20px;
     border-radius: 50px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0px 5px 15px rgba(0, 188, 212, 0.6);
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 20px rgba(0, 188, 212, 0.6);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
 
 .welcome-button:hover {
     background-color: #0288d1;
-    box-shadow: 0px 5px 25px rgba(0, 123, 255, 0.8);
+    box-shadow: 0px 6px 25px rgba(0, 123, 255, 0.8);
+    transform: translateY(-5px);
+}
+
+.welcome-button:active {
+    transform: translateY(2px);
 }
 
 /* Descripción del Botón */
 .button-description {
-    margin-top: 30px;
+    margin-top: 40px;
     color: #aaa;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.8;
+    opacity: 0;
+    animation: fadeIn 2s forwards 1s;
 }
 
 /* Redes Sociales */
 .social-media {
-    margin-top: 40px;
+    margin-top: 50px;
+    transition: all 0.3s ease-in-out;
 }
 
 .social-icon {
     color: #fff;
-    font-size: 30px;
-    margin: 0 15px;
-    transition: transform 0.3s ease-in-out;
+    font-size: 35px;
+    margin: 0 20px;
+    padding: 10px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .social-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
-.instagram:hover {
-    color: #E1306C;
+.social-icon.instagram:hover {
+    background-color: #E1306C;
 }
 
-.facebook:hover {
-    color: #3b5998;
+.social-icon.facebook:hover {
+    background-color: #3b5998;
+}
+
+/* Animación de Entrada */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Footer */
@@ -117,8 +154,8 @@ h1 {
 
 /* Medios Responsivos */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 36px;
+    .title {
+        font-size: 40px;
     }
 
     .business-description {
@@ -126,10 +163,11 @@ h1 {
     }
 
     .welcome-button {
-        padding: 12px 25px;
+        padding: 15px 30px;
     }
 
     .social-icon {
-        font-size: 25px;
+        font-size: 30px;
+        margin: 0 10px;
     }
 }
