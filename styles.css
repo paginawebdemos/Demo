@@ -447,60 +447,107 @@ p {
   box-sizing: border-box;
 }
 
-/* Estilos del modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-}
-
-.modal h3 {
-  font-size: 1.5rem;
-  color: black;
-}
-
-.modal p {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-.order-button {
-  background-color: #28a745;
-  color: white;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.order-button:hover {
-  background-color: #218838;
-}
-
-@media (max-width: 768px) {
+ 
+  /* Fondo oscuro detrás del modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);   
+    z-index: 1040;   
+  }
+  
+  
   .modal-content {
-    width: 90%;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;  
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .modal h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: black;  
+    margin-bottom: 10px;  
+  }
+  
+  .modal p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;  
+  }
+  
+  .order-button {
+    background-color: #28a745;  
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;  
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;  
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-button:hover {
+    background-color: #218838;  
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .modal-content {
+        padding: 15px;  
+        width: 90%;  
+    }
+  
+    .order-button {
+        padding: 8px 16px;  
+        font-size: 0.9rem;  
+        margin-top: 10px;  
+    }
+  
+    .modal img {
+        max-width: 250px;  
+    }
+  
+    .modal h3 {
+        font-size: 1.3rem;  
+    }
+  
+    .modal p {
+        font-size: 1rem;  
+    }
   }
 
-  .order-button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-}
+  
