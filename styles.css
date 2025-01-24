@@ -1,11 +1,11 @@
-/* Estilo general */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #f2f9ff, #e1f7d5, #f9e5e0); /* Gradiente de colores claros */
   color: rgb(0, 0, 0);
 }
+
 
 /* Animaciones */
 @keyframes spin {
@@ -362,38 +362,31 @@ p {
 
    
 /* Contenedor principal de los items del menú */
-.menu-item {
-  background: linear-gradient(45deg, #ff6b6b, #ffb142, #6c5ce7, #00b894);  /* Gradiente de varios colores */
-  box-shadow: 0 4px 12px rgb(0, 0, 0);  
-  border-radius: 10px;
-  margin: 10px;
-  padding: 15px;  /* Reducir el padding general */
-  width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
-  max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
-  position: relative;
-  font-family: 'Roboto', sans-serif;
-  transition: background 0.3s ease; /* Suaviza el cambio de fondo */
-}
-
-/* Efecto hover en el contenedor del item */
-.menu-item:hover {
-  transform: translateY(-5px);
-  background: linear-gradient(45deg, #6c5ce7, #ffb142, #ff6b6b, #00b894); /* Cambio de colores en el hover */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
-}
-
-/* Responsividad para dispositivos móviles */
-@media (max-width: 768px) {
   .menu-item {
-    width: 100%;  /* En pantallas pequeñas, los items ocuparán el 100% del ancho */
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgb(0, 0, 0);  
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;  /* Reducir el padding general */
+    width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
+    max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
+    position: relative;
+    font-family: 'Roboto', sans-serif;
   }
-}
+  
+  /* Efecto hover en el contenedor del item */
+  .menu-item:hover {
+    transform: translateY(-5px);
+    background-color: #f9f9f9;  
+    box-shadow: 0 4px 12px rgb(0, 0, 0);  
+  }
+  
 
   
   /* Imagen dentro del item del menú */
