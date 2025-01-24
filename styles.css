@@ -363,13 +363,14 @@ p {
    
 /* Contenedor principal de los items del menú */
 .menu-item {
-  background: linear-gradient(45deg, #d4a5a5, #f0cba3, #a0a4e0, #a4d8c4);  /* Gradiente de colores suaves */
-  box-shadow: 0 4px 12px rgb(0, 0, 0);  
-  border-radius: 10px;
-  margin: 10px;
-  padding: 15px;  /* Reducir el padding general */
-  width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
-  max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
+  background-color: #fff;
+  background: linear-gradient(135deg, #f4f4f4, #e6e6e6);  /* Fondo con gradiente sutil */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Sombra suave y sutil */
+  border-radius: 15px;  /* Bordes más redondeados */
+  margin: 20px;
+  padding: 20px;
+  width: calc(50% - 40px);  /* Mejor ajuste en pantallas pequeñas */
+  max-width: 320px;  /* Máximo ancho para evitar que se alargue demasiado */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -378,20 +379,53 @@ p {
   aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
   position: relative;
   font-family: 'Roboto', sans-serif;
-  transition: background 0.3s ease; /* Suaviza el cambio de fondo */
+  transition: all 0.3s ease-in-out;  /* Transición suave para todos los efectos */
+  overflow: hidden;  /* Evita que los elementos sobrepasen el borde */
+  cursor: pointer;  /* Cambiar el cursor para indicar interactividad */
 }
 
 /* Efecto hover en el contenedor del item */
 .menu-item:hover {
-  transform: translateY(-5px);
-  background: linear-gradient(45deg, #a0a4e0, #f0cba3, #d4a5a5, #a4d8c4); /* Gradiente más suave en el hover */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+  transform: translateY(-8px) scale(1.05);  /* Desplazamiento y escalado más dramático */
+  background-color: #f0f0f0;  /* Cambio de fondo en hover */
+  background: linear-gradient(135deg, #e0e0e0, #c4c4c4);  /* Gradiente sutil más oscuro */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);  /* Sombra más pronunciada al hacer hover */
+  border: 2px solid #6c5ce7;  /* Borde de color llamativo en hover */
+  transform: translateY(-5px) scale(1.05);  /* Efecto de elevar y agrandar suavemente */
+  transition: all 0.3s ease-in-out;
 }
 
-/* Responsividad para dispositivos móviles */
+/* Agregar un resplandor alrededor del contenedor en hover */
+.menu-item:hover::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 15px;
+  background: rgba(108, 92, 237, 0.2);  /* Resplandor suave alrededor */
+  z-index: -1;
+}
+
+/* Estilos para texto dentro del item */
+.menu-item h3 {
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover h3 {
+  color: #6c5ce7;  /* Cambio de color del texto en hover */
+}
+
+/* Efectos responsivos */
 @media (max-width: 768px) {
   .menu-item {
-    width: 100%;  /* En pantallas pequeñas, los items ocuparán el 100% del ancho */
+    width: calc(100% - 40px);  /* Hacer los items del menú más grandes en pantallas pequeñas */
+    margin: 10px;
   }
 }
 
