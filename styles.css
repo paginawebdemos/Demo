@@ -60,7 +60,7 @@ body {
   width: 100%;
   padding: 60px 30px;
   background: linear-gradient(135deg, #ffffff, #0008ea);
-  border-bottom: 4px solid #6c5ce7; /* Línea de color en lugar de la sombra */
+   border-bottom: 4px solid #000000; /* Línea de color en lugar de la sombra */
   box-sizing: border-box;
   border-radius: 0px;
   transition: all 0.4s ease-in-out;
@@ -178,7 +178,7 @@ body {
     aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
     position: relative;
     font-family: 'Roboto', sans-serif;
-    border: 2px solid #6c5ce7; /* Línea morada alrededor del contenedor */
+    border: 2px solid #000000; /* Línea morada alrededor del contenedor */
   }
   
   
