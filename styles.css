@@ -360,13 +360,13 @@ p {
   }
 }
 
-/* Contenedor principal de los items del menú */
+  /* Contenedor principal de los items del menú */
 .menu-item {
   background-color: #fff;
   box-shadow: 0 4px 12px rgb(0, 0, 0);  
   border-radius: 10px;
   margin: 10px;
-  padding: 15px;
+  padding: 15px;  /* Reducir el padding general */
   width: calc(50% - 20px);  /* En pantallas pequeñas, se ajusta a la mitad del contenedor */
   max-width: 300px; /* Establecer un ancho máximo para evitar que los contenedores se alarguen demasiado */
   box-sizing: border-box;
@@ -378,7 +378,6 @@ p {
   position: relative;
   font-family: 'Roboto', sans-serif;
   border: 2px solid #6c5ce7; /* Línea morada alrededor del contenedor */
-  height: 400px; /* Fijar una altura para evitar que se deforme */
 }
 
 /* Efecto hover en el contenedor del item */
@@ -390,28 +389,27 @@ p {
 }
 
 /* Imagen dentro del item del menú */
-.menu-item img {
-  width: 100%;       /* Asegura que la imagen ocupe todo el ancho del contenedor */
-  height: 100%;      /* Asegura que la imagen ocupe todo el alto del contenedor */
-  object-fit: cover; /* La imagen se ajusta al contenedor sin distorsionar, pero puede recortarse */
-  border-radius: 10px;
-  margin-bottom: 5px;  /* Reducir el margen inferior */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease-in-out;
-}
-
+  .menu-item img {
+    width: 100%;       /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 100%;      /* Asegura que la imagen ocupe todo el alto del contenedor */
+    object-fit: cover; /* La imagen se ajusta al contenedor sin distorsionar, pero puede recortarse */
+    border-radius: 10px;
+    margin-bottom: 5px;  /* Reducir el margen inferior */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+  }
   
   /* Efecto de hover en la imagen */
   .menu-item:hover img {
     transform: scale(1.05);  
   }
   
-/* Estilo para el nombre del plato */
-.menu-item h5 {
-  margin-bottom: 3px; /* Reducir aún más el espacio entre el nombre y el precio */
-  font-size: 1.2rem;  /* Ajusta el tamaño del texto si es necesario */
-  font-weight: bold;
-}
+  /* Estilo para el nombre del plato */
+  .menu-item h5 {
+    margin-bottom: 3px; /* Reducir aún más el espacio entre el nombre y el precio */
+    font-size: 1.2rem;  /* Ajusta el tamaño del texto si es necesario */
+    font-weight: bold;
+  }
   
   /* Estilo para el precio del plato */
   .menu-item p {
@@ -420,17 +418,16 @@ p {
     color: #555;
   }
   
-/* Estilo para los botones */
-.menu-item button {
-  margin-top: 5px;  /* Reducir el espacio entre el precio y el botón */
-  padding: 8px 16px;  /* Ajustar el padding del botón para que no sea tan grande */
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;  /* Asegura que el botón ocupe todo el ancho disponible */
-}
+  /* Estilo para los botones */
+  .menu-item button {
+    margin-top: 5px;  /* Reducir el espacio entre el precio y el botón */
+    padding: 8px 16px;  /* Ajustar el padding del botón para que no sea tan grande */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
   .menu-item button:hover {
     background-color: #0056b3;
