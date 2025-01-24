@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #000000;
   color: rgb(0, 0, 0);
 }
 
@@ -50,11 +50,11 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
 /* Contenedor principal de la página (se aplica la perspectiva 3D) */
 body {
   perspective: 1500px; /* Establece el área 3D */
 }
-
 
 /* Estilos para el contenedor de bienvenida */
 #welcome-container {
@@ -195,33 +195,42 @@ p {
 }
   
 /* Estilo de la sección del menú */
-.menu-section {
-  width: 100%;
-  padding: 60px 30px;
-  background: linear-gradient(135deg, #ffffff, #0008ea);
-  border-bottom: 4px solid #000000; /* Línea de color en lugar de la sombra */
-  box-sizing: border-box;
-  border-radius: 0px;
-  transition: all 0.4s ease-in-out;
-  overflow: hidden;
-  animation: fadeIn 1s ease-out;
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  margin-top: 0;
-  max-width: 1200px; /* Máximo ancho para pantallas grandes */
-  margin-left: auto;
-  margin-right: auto; /* Centrar en pantallas grandes */
-}
-
-/* Estilo para el título dentro de .menu-section */
-.menu-section h2 {
-  font-size: 2.5rem;
-  color: #000000 !important;
-  margin: 0;
-  font-weight: 600;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.903);
-}
+  .menu-section {
+    width: 100%;  
+    padding: 60px 30px;  
+    background: linear-gradient(135deg, #4e73df, #36b9cc);  
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);  
+    box-sizing: border-box;
+    border-radius: 0px;  
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-top: 0;
+    padding: 60px 30px;  
+  }
+  
+  /* Estilo para el título dentro de .menu-section */
+  .menu-section h2 {
+    font-size: 2.5rem;
+    color: #f39c12 !important;   
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.382);
+  }
+   
+  /* Contenedor de partículas (fondo dinámico) */
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
   /* Contenedor del filtro */
   .filter-container {
     display: flex;
@@ -279,10 +288,10 @@ p {
     padding: 20px;
   }
    
-   /* Contenedor principal de los items del menú */
+  /* Contenedor principal de los items del menú */
   .menu-item {
     background-color: #fff;
-    box-shadow: 0 4px 12px #6c5ce7;  
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
     border-radius: 10px;
     margin: 10px;
     padding: 15px;  /* Reducir el padding general */
@@ -296,16 +305,13 @@ p {
     aspect-ratio: 1 / 1;  /* Mantener el contenedor cuadrado */
     position: relative;
     font-family: 'Roboto', sans-serif;
-    border: 2px solid #000000; /* Línea morada alrededor del contenedor */
   }
-  
   
   /* Efecto hover en el contenedor del item */
   .menu-item:hover {
     transform: translateY(-5px);
     background-color: #f9f9f9;  
-    box-shadow: 0 4px 12px rgb(0, 0, 0);  
-    border-color: #a29bfe; /* Cambiar el color del borde a un tono más claro al hacer hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.7);  
   }
   
   /* Imagen dentro del item del menú */
@@ -654,9 +660,7 @@ p {
     box-sizing: border-box;
   }
   
-    
    
-
   
   /* Estilos para el modal */
   .modal {
@@ -778,6 +782,7 @@ p {
         font-size: 1rem;  
     }
   }
+
   
 /* Botón flotante que abre el chat */
 .chat-btn {
@@ -1452,5 +1457,3 @@ footer p {
     font-size: 0.8rem; /* Asegurar que el texto sea legible en pantallas pequeñas */
   }
 }
-
-
