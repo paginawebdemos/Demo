@@ -367,9 +367,9 @@ p {
   border: 3px solid #6c5ce7;  /* Línea morada alrededor del contenedor */
   box-shadow: 0 4px 12px rgb(0, 0, 0);  
   border-radius: 10px;
-  margin: 15px;  /* Espacio entre los contenedores */
+  margin: 10px;  /* Ajustar el margen entre los contenedores */
   padding: 15px;
-  width: calc(50% - 30px);  /* Ajusta el tamaño de los contenedores */
+  width: calc(50% - 20px);  /* Ajuste del tamaño de los contenedores */
   max-width: 300px;
   box-sizing: border-box;
   display: flex;
@@ -389,12 +389,12 @@ p {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Contenedor de los items del menú (para que se distribuyan con espacio entre ellos) */
+/* Contenedor de los items del menú (con menos espacio entre ellos) */
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;  /* Espacio entre los items */
-  gap: 20px;  /* Espacio entre los contenedores */
+  justify-content: space-between;  /* Mantener la distribución entre los items */
+  gap: 15px;  /* Reducir espacio entre los contenedores */
   padding: 20px;
 }
 
@@ -408,9 +408,10 @@ p {
 
   .container {
     padding: 10px;  /* Menos padding en pantallas pequeñas */
-    gap: 15px;  /* Reducir espacio entre items en móviles */
+    gap: 12px;  /* Reducir aún más el espacio entre items en móviles */
   }
 }
+
 
 
   
